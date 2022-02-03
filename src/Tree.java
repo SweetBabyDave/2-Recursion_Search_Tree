@@ -207,8 +207,7 @@ public class Tree<E extends Comparable<? super E>> {
         var leftNode = getByKeyHelper(node.left, key);
         var rightNode = getByKeyHelper(node.right, key);
         if (leftNode != null) return leftNode;
-        if (rightNode != null) return rightNode;
-        return null;
+        return rightNode;
     }
 
     public BinaryTreeNode getByKey(E key) {
