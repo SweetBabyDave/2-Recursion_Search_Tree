@@ -180,10 +180,11 @@ public class Tree<E extends Comparable<? super E>> {
     public int countBSTHelper(BinaryTreeNode node) {
         if (node == null) return 0;
         int tempInt = countBSTHelper(node.left) + countBSTHelper(node.right);
-        if (node.left == null && node.right == null) tempInt += 1;
-        if (node.left != null) {
+        if (node.left == null && node.right == null) {
+            tempInt += 1;
+        } else if (node.left != null) {
             if (node.left.key.compareTo(node.key) < 0) tempInt += 1;
-        } else if (node.right != null) {
+        } else {
             if (node.right.key.compareTo(node.key) > 0) tempInt += 1;
         }
         return tempInt;
