@@ -45,11 +45,11 @@ public class Tree<E extends Comparable<? super E>> {
         counter++;
         toStringHelper(node.right, sb, counter);
         String tab = new String(new char[counter]).replace("\0", "  ");
-        String noParent = new String("no parent");
+        String noParent = "no parent";
         if (node.parent != null) {
             noParent = node.parent.key.toString();
         }
-        sb.append(tab + node.key + " [" + noParent + "]" + "\n");
+        sb.append(tab).append(node.key).append(" [").append(noParent).append("]").append("\n");
         toStringHelper(node.left, sb, counter);
     }
 
@@ -58,7 +58,7 @@ public class Tree<E extends Comparable<? super E>> {
             return "Empty Tree";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.name + "\n");
+        sb.append(this.name).append("\n");
         toStringHelper(this.root, sb, -1);
         return sb.toString();
     }
@@ -68,11 +68,7 @@ public class Tree<E extends Comparable<? super E>> {
     public void inOrderToStringHelper(BinaryTreeNode node, StringBuilder sb) {
         if (node == null) return;
         inOrderToStringHelper(node.left, sb);
-        String noParent = new String("no parent");
-        if (node.parent != null) {
-            noParent = node.parent.key.toString();
-        }
-        sb.append(node.key + "  ");
+        sb.append(node.key).append("  ");
         inOrderToStringHelper(node.right, sb);
     }
 
@@ -81,7 +77,7 @@ public class Tree<E extends Comparable<? super E>> {
             return "Empty Tree";
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(this.name + ": ");
+        sb.append(this.name).append(": ");
         inOrderToStringHelper(this.root, sb);
         return sb.toString();
     }
